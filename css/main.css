@@ -11,6 +11,8 @@ body{
 }
 
 .world-title{
+    padding: 10px 0;
+    font-family: 24px;
     background-color: #fff;
 }
 
