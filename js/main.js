@@ -4,12 +4,14 @@ const getData = async(city) => {
     
     const base = 'https://api.openweathermap.org/data/2.5/weather';
     const query = `?q=${city}&appid=${KEY}`;
-    
+    overlay(true)
     let req = await fetch(base + query);
     let data = await req.json();
+    overlay(false)
     
     return data;
 }
+
 
 const getWeather = async(city) => {
     let data = await getData(city);
@@ -49,4 +51,16 @@ elWeatherForm.addEventListener('submit', (evt) => {
     elWeatherForm.city.value = '';
 })
 
+
+// loader
+
+let elOverlay = document.querySelector('.overlay')
+
+const overlay = (state) => {
+     if(state){
+        elOverlay.classList.remove('d-none')
+     }else{
+        elOverlay.classList.add('d-none')
+     }
+}
 
